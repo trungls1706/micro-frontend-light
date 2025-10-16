@@ -20,7 +20,6 @@ export default defineConfig({
   },
   build: {
     target: "esnext", // Giữ cú pháp ESM
-    minify: false, // Dễ debug
     cssCodeSplit: false, // Gộp CSS chung để host dễ load
   },
 });
