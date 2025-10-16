@@ -7,7 +7,7 @@ export default defineConfig({
     react(),
     federation({
       name: "remote",
-      filename: "remoteEntry.js",
+      filename: "remoteEntry.js", // tên file mà host sẽ load
       exposes: {
         "./Button": "./src/Button.jsx",
       },
@@ -16,8 +16,11 @@ export default defineConfig({
   ],
   server: {
     port: 5001,
+    cors: true,
   },
   build: {
-    target: "esnext",
+    target: "esnext", // Giữ cú pháp ESM
+    minify: false, // Dễ debug
+    cssCodeSplit: false, // Gộp CSS chung để host dễ load
   },
 });
